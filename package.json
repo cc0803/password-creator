@@ -18,6 +18,7 @@
 	},
 	"homepage": "https://github.com/cc0803/password-creator#readme",
 	"devDependencies": {
+		"source-map-loader": "^4.0.1",
 		"webpack": "^5.89.0",
 		"webpack-cli": "^5.1.4"
 	}

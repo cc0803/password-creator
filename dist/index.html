@@ -4,7 +4,34 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<script src="./main.js" defer></script>
+		<script src="./bundle.js" defer></script>
 	</head>
-	<body></body>
+	<body>
+		<main>
+			<form action="">
+				<div class="form-section">
+					<label for="length"
+						>Enter your Password length (4-20)</label
+					>
+					<input type="text" id="length" />
+				</div>
+				<h3>Select symbols for the password</h3>
+				<div class="form-section">
+					<label for="characters">Characters</label>
+					<input type="checkbox" id="characters" />
+				</div>
+				<div class="form-section">
+					<label for="digits">Digits</label>
+					<input type="checkbox" id="digits" />
+				</div>
+				<div class="form-section">
+					<label for="special"
+						>Special characters like ?-#*$%&/!</label
+					>
+					<input type="checkbox" id="special" />
+				</div>
+				<input type="submit" id="submit" />
+			</form>
+		</main>
+	</body>
 </html>
