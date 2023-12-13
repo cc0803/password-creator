@@ -5,6 +5,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<script src="./bundle.js" defer></script>
+		<style>
+			p {
+				padding: 1rem;
+				border: 2px solid darkgray;
+				text-align: center;
+				max-width: 300px;
+				font-size: 16px;
+				font-family: monospace;
+			}
+		</style>
 	</head>
 	<body>
 		<main>
@@ -18,20 +28,24 @@
 				<h3>Select symbols for the password</h3>
 				<div class="form-section">
 					<label for="characters">Characters</label>
-					<input type="checkbox" id="characters" />
+					<input type="checkbox" id="characters" class="checkbox" />
 				</div>
 				<div class="form-section">
 					<label for="digits">Digits</label>
-					<input type="checkbox" id="digits" />
+					<input type="checkbox" id="digits" class="checkbox" />
 				</div>
 				<div class="form-section">
 					<label for="special"
-						>Special characters like ?-#*$%&/!</label
+						>Special characters like
+						!#$%&()*+,-./:;&lt@=&gt?[\]^_{|}~</label
 					>
-					<input type="checkbox" id="special" />
+					<input type="checkbox" id="special" class="checkbox" />
 				</div>
 				<input type="submit" id="submit" />
 			</form>
+			<div class="output">
+				<p></p>
+			</div>
 		</main>
 	</body>
 </html>

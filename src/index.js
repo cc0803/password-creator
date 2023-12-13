@@ -1,4 +1,5 @@
 let button = document.querySelector("#submit");
+let paragraph = document.querySelector(".output>p");
 let values;
 
 button.addEventListener("click", () => {
@@ -6,10 +7,19 @@ button.addEventListener("click", () => {
 
 	// Check if input is correctly formatted
 	if (checkCorrectnessOfForm()) {
-		console.log("hello ");
 		values = getFormInput();
+
+		// Check if any options are selected
+		if (
+			values.digits == false &&
+			values.characters == false &&
+			values.special == false
+		) {
+			alert("There are no options selected!");
+		}
 	}
-	console.log(values);
+
+	paragraph.textContent = createPassword(values);
 });
 
 /* 
@@ -23,7 +33,6 @@ function getFormInput() {
 		digits: document.querySelector("#digits").checked,
 		special: document.querySelector("#special").checked,
 	};
-	console.log("hello");
 
 	return obj;
 }
@@ -35,14 +44,44 @@ function checkCorrectnessOfForm() {
 	length = Number(length);
 
 	// check if conversion was successful
-	if (!length.isInteger()) {
-		console.log("hello");
+	if (length == NaN) {
 		return false;
 	}
 
 	// Compare to string, because input is in string format
 	if (length < 4 || length > 20) {
+		alert("Number is either to long or to short!");
 		return false;
 	}
+
 	return true;
+}
+
+function createPassword(obj) {
+	let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	let digits = "0123456789";
+	let special = "!#$%&()*+,-./:;&lt@=&gt?[]^_{|}~";
+	let selected = "";
+	let password = "";
+
+	if (obj.characters) {
+		selected += characters;
+	}
+	if (obj.digits) {
+		selected += digits;
+	}
+	if (obj.special) {
+		selected += special;
+	}
+
+	selected = selected.split("");
+	for (let i = 0; i < obj.length; i++) {
+		password += selected[getRandomNumber(selected.length)];
+	}
+
+	return password;
+}
+
+function getRandomNumber(max) {
+	return Math.floor(Math.random() * max);
 }
